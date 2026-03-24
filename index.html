@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profilo Alessandro Simonazzi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #87CEEB, #FFD580, #90EE90);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    transition: 0.5s;
+}
+
+body.dark-mode {
+    background: #0a0e27;
+    color: white;
+}
+
+.theme-switch {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+#theme-toggle {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+header {
+    text-align: center;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    background: #ace9fd;
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #3498db;
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="theme-switch">
+    <button id="theme-toggle">🌙 Modalità Notte</button>
+</div>
+
+<header>
+    <img src="https://content-s3.tuttocampo.it/Players/Original/8750028.png" class="profile-img">
+    <h1>@_ale.simonazzi_</h1>
+    <p>📚 Studente | ⚽ Calcio</p>
+</header>
+
+<div class="container">
+    <a href="https://www.instagram.com/_ale.simonazzi_/" class="btn">Instagram</a>
+    <a href="https://torricellimi.edu.it/" class="btn">Istituto</a>
+    <a href="https://www.tuttocampo.it/" class="btn">Profilo Calcio</a>
+    <a href="https://www.youtube.com/" class="btn">YouTube</a>
+    <button id="contact-btn" class="btn">💬 Contattami</button>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+const body = document.body;
+
+btn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+        btn.innerText = "☀️ Modalità Giorno";
+        localStorage.setItem('darkMode', 'true');
+    } else {
+        btn.innerText = "🌙 Modalità Notte";
+        localStorage.setItem('darkMode', 'false');
+    }
+});
+
+if (localStorage.getItem('darkMode') === 'true') {
+    body.classList.add('dark-mode');
+    btn.innerText = "☀️ Modalità Giorno";
+}
+
+document.getElementById('contact-btn').addEventListener('click', () => {
+    window.open('mailto:alessandro.simonazzi07@gmail.com');
+});
+</script>
+
+</body>
+</html>
