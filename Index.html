@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilo Alessandro Simonazzi | Calcio & Informatica</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome per le icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* MODALITÀ GIORNO - BELLISSIMA */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #87CEEB 0%, #FFD580 45%, #90EE90 100%);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* SOLE ANIMATO - GIORNO */
+        body:not(.dark-mode)::before {
+            content: '';
+            position: fixed;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle at 35% 35%, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            border-radius: 50%;
+            top: 2%;
+            right: 2%;
+            z-index: 0;
+            pointer-events: none;
+            filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 100px rgba(255, 165, 0, 0.6));
+            animation: sunPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes sunPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* NUVOLE - GIORNO */
+        body:not(.dark-mode)::after {
+            content: '';
+            position: fixed;
+            width: 100%;
+            height: 45%;
+            top: 8%;
+            left: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400"><defs><filter id="cloudFilter"><feGaussianBlur in="SourceGraphic" stdDeviation="2"/><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.2"/></filter></defs><g filter="url(%23cloudFilter)"><ellipse cx="100" cy="100" rx="85" ry="55" fill="white" opacity="0.88"/><ellipse cx="170" cy="95" rx="95" ry="60" fill="white" opacity="0.92"/><ellipse cx="750" cy="180" rx="110" ry="65" fill="white" opacity="0.85"/><ellipse cx="840" cy="175" rx="105" ry="60" fill="white" opacity="0.9"/><ellipse cx="1350" cy="120" rx="95" ry="58" fill="white" opacity="0.87"/><ellipse cx="1420" cy="115" rx="90" ry="55" fill="white" opacity="0.91"/></g></svg>');
+            background-size: 1600px 400px;
+            background-repeat: no-repeat;
+            animation: cloudDrift 35s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes cloudDrift {
+            0% { background-position: 0 0; }
+            100% { background-position: -150px 0; }
+        }
+
+        /* MODALITÀ NOTTE - BELLISSIMA */
+        body.dark-mode {
+            background: linear-gradient(180deg, #0a0e27 0%, #16213e 25%, #1a3a52 50%, #0d1f2d 75%, #050810 100%);
+            background-attachment: fixed;
+        }
+
+        /* LUNA LUMINOSA - NOTTE */
+        body.dark-mode::before {
+            content: '';
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at 35% 35%, #F8F8FF 0%, #E8E8F0 20%, #D0D0E0 40%, #A0A0C0 70%, transparent 100%);
+            border-radius: 50%;
+            top: 8%;
+            left: 8%;
+            z-index: 1;
+            pointer-events: none;
+            filter: drop-shadow(0 0 50px rgba(248, 248, 255, 0.7)) drop-shadow(0 0 25px rgba(180, 200, 255, 0.5));
+            animation: moonFloat 7s ease-in-out infinite;
+        }
+
+        @keyframes moonFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-18px); }
+        }
+
+        /* STELLE SCINTILLANTI - NOTTE */
+        body.dark-mode::after {
+            content: '';
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 12% 20%, #FFF, transparent),
+                radial-gradient(1px 1px at 35% 15%, #FFF, transparent),
+                radial-gradient(2px 2px at 65% 25%, #FFF, transparent),
+                radial-gradient(1px 1px at 88% 35%, #FFF, transparent),
+                radial-gradient(1.5px 1.5px at 25% 65%, #FFF, transparent),
+                radial-gradient(1px 1px at 58% 72%, #FFF, transparent),
+                radial-gradient(2px 2px at 92% 60%, #FFF, transparent),
+                radial-gradient(1px 1px at 40% 88%, #FFF, transparent),
+                radial-gradient(1.5px 1.5px at 78% 82%, #FFF, transparent),
+                radial-gradient(1px 1px at 15% 45%, #FFF, transparent),
+                radial-gradient(2px 2px at 68% 50%, #FFF, transparent),
+                radial-gradient(1px 1px at 48% 28%, #FFF, transparent),
+                radial-gradient(1.5px 1.5px at 82% 72%, #FFF, transparent);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            z-index: 0;
+            pointer-events: none;
+            animation: starsTwinkle 4s ease-in-out infinite;
+        }
+
+        @keyframes starsTwinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.95; }
+        }
+
+        /* EFFETTI PARTICELLE ATMOSPHERIC */
+        body::before, body::after {
+            backdrop-filter: blur(0px);
+        }
+
+        /* STILE THEME SWITCH */
+        .theme-switch {
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 10;
+        }
+
+        #theme-toggle {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.22) 100%);
+            color: #333;
+            border: 2.5px solid rgba(255, 255, 255, 0.85);
+            padding: 15px;
+            border-radius: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.18),
+                        inset 0 2px 8px rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: 0;
+        }
+
+        #theme-toggle:hover::before {
+            width: 320px;
+            height: 320px;
+        }
+
+        #theme-toggle:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.38) 100%);
+            transform: translateY(-5px) scale(1.06);
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.25),
+                        inset 0 2px 12px rgba(255, 255, 255, 0.85);
+            border-color: rgba(255, 255, 255, 1);
+        }
+
+        #theme-toggle > span {
+            position: relative;
+            z-index: 1;
+        }
+
+        #theme-toggle:active {
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        /* DARK MODE - THEME SWITCH */
+        body.dark-mode #theme-toggle {
+            background: linear-gradient(135deg, rgba(100, 160, 230, 0.42) 0%, rgba(70, 130, 200, 0.32) 100%);
+            color: #fff;
+            border: 2.5px solid rgba(150, 200, 255, 0.75);
+            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.5),
+                        inset 0 2px 8px rgba(150, 200, 255, 0.45);
+        }
+
+        body.dark-mode #theme-toggle:hover {
+            background: linear-gradient(135deg, rgba(140, 190, 255, 0.62) 0%, rgba(110, 160, 230, 0.52) 100%);
+            border-color: rgba(200, 230, 255, 1);
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.65),
+                        inset 0 2px 12px rgba(150, 200, 255, 0.6);
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 5;
+            animation: slideDown 0.9s ease-out;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.15) 100%);
+            padding: 38px 28px;
+            border-radius: 24px;
+            backdrop-filter: blur(14px);
+            border: 2px solid rgba(255, 255, 255, 0.38);
+            box-shadow: 0 14px 50px rgba(0, 0, 0, 0.15),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.5);
+        }
+
+        body.dark-mode header {
+            background: linear-gradient(135deg, rgba(35, 75, 125, 0.38) 0%, rgba(20, 55, 95, 0.28) 100%);
+            border: 2px solid rgba(110, 170, 240, 0.35);
+            box-shadow: 0 14px 50px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 2px rgba(150, 200, 255, 0.3);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38),
+                        inset 0 0 35px rgba(255, 255, 255, 0.65),
+                        0 0 70px rgba(255, 215, 0, 0.35);
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF, #FF6B6B);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: rainbowSpin 4s linear infinite;
+        }
+
+        @keyframes rainbowSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-img::after {
+            content: '';
+            position: absolute;
+            inset: -18px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.35), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: glowPulse 3.5s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { transform: scale(0.95); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+        }
+
+        .profile-img:hover {
+            transform: scale(1.16) rotateZ(8deg);
+            box-shadow: 0 38px 100px rgba(0, 0, 0, 0.48),
+                        inset 0 0 45px rgba(255, 255, 255, 0.75),
+                        0 0 100px rgba(255, 215, 0, 0.55);
+            filter: brightness(1.12) saturate(1.25) contrast(1.08);
+        }
+
+        .profile-img:hover::before {
+            opacity: 1;
+        }
+
+        .profile-img:hover::after {
+            opacity: 0.65;
+        }
+
+        h1 {
+            margin: 24px 0 8px;
+            font-size: 46px;
+            color: #000;
+            transition: all 0.4s ease;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 5px 5px 12px rgba(0, 0, 0, 0.18);
+        }
+
+        body.dark-mode h1 {
+            color: #fff;
+            text-shadow: 5px 5px 12px rgba(0, 0, 0, 0.85);
+        }
+
+        h1:hover {
+            transform: scale(1.08) translateY(-3px);
+            letter-spacing: 3px;
+            filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
+        }
+
+        header p {
+            font-size: 16px;
+            color: #333;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+        }
+
+        body.dark-mode header p {
+            color: #e8f5ff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65);
+        }
+
+        /* CONTENITORE BOTTONI */
+        .container {
+            width: 100%;
+            max-width: 420px;
+            margin-top: 35px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ACE9FD 0%, #7FD9F5 100%);
+            color: #333;
+            text-decoration: none;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 18px;
+            font-weight: 750;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 11px 38px rgba(52, 152, 219, 0.32),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.55);
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.4px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.75);
+            transform: translate(-50%, -50%);
+            transition: width 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        height 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .btn:hover::before {
+            width: 340px;
+            height: 340px;
+        }
+
+        .btn i {
+            margin-right: 11px;
+            font-size: 1.35rem;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 2;
+            font-weight: 750;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+            color: white;
+            transform: translateY(-7px);
+            box-shadow: 0 16px 50px rgba(52, 152, 219, 0.62),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.65);
+            border-color: rgba(255, 255, 255, 0.85);
+        }
+
+        .btn:hover i {
+            transform: scale(1.28) rotate(18deg);
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.75));
+        }
+
+        .btn:active {
+            transform: translateY(-3px);
+        }
+
+        /* DARK MODE - BOTTONI */
+        body.dark-mode .btn {
+            background: linear-gradient(135deg, rgba(85, 150, 200, 0.78) 0%, rgba(65, 120, 170, 0.68) 100%);
+            color: #fff;
+            border: 1.5px solid rgba(140, 200, 255, 0.5);
+            box-shadow: 0 11px 38px rgba(0, 0, 0, 0.42),
+                        inset 0 1px 2px rgba(150, 200, 255, 0.45);
+        }
+
+        body.dark-mode .btn:hover {
+            background: linear-gradient(135deg, rgba(120, 180, 230, 0.98) 0%, rgba(100, 150, 210, 0.88) 100%);
+            color: #fff;
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.65),
+                        inset 0 1px 2px rgba(150, 200, 255, 0.65);
+            border-color: rgba(200, 230, 255, 0.85);
+        }
+
+        /* PULSANTE CONTATTAMI */
+        .pulsante-animato {
+            width: 100%;
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            border: 1.5px solid rgba(255, 255, 255, 0.45);
+            padding: 20px;
+            margin-top: 28px;
+            border-radius: 18px;
+            font-weight: 880;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 15px 48px rgba(102, 126, 234, 0.62),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.45);
+            letter-spacing: 0.8px;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        .pulsante-animato::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .pulsante-animato::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .pulsante-animato:hover {
+            transform: translateY(-7px) scale(1.04);
+            box-shadow: 0 22px 65px rgba(102, 126, 234, 0.8),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.65);
+            background: linear-gradient(135deg, #764BA2 0%, #667EEA 100%);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .pulsante-animato:hover::before {
+            left: 100%;
+        }
+
+        .pulsante-animato:hover::after {
+            opacity: 1;
+        }
+
+        .pulsante-animato:active {
+            transform: translateY(-3px);
+        }
+
+        body.dark-mode .pulsante-animato {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            box-shadow: 0 15px 48px rgba(102, 126, 234, 0.72),
+                        inset 0 1px 2px rgba(200, 150, 255, 0.45);
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 60px;
+            font-size: 14px;
+            color: #333;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            z-index: 5;
+            letter-spacing: 0.4px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.12) 100%);
+            padding: 20px;
+            border-radius: 18px;
+            backdrop-filter: blur(14px);
+            border: 1.5px solid rgba(255, 255, 255, 0.28);
+            box-shadow: 0 10px 42px rgba(0, 0, 0, 0.12),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.35);
+        }
+
+        body.dark-mode footer {
+            color: #e8f5ff;
+            background: linear-gradient(135deg, rgba(35, 75, 125, 0.28) 0%, rgba(20, 55, 95, 0.18) 100%);
+            border: 1.5px solid rgba(110, 170, 240, 0.28);
+            box-shadow: 0 10px 42px rgba(0, 0, 0, 0.35),
+                        inset 0 1px 2px rgba(150, 200, 255, 0.22);
+        }
+
+        footer p {
+            animation: fadeIn 1.3s ease-out;
+            font-size: 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            body {
+                padding: 18px 12px;
+            }
+
+            header {
+                padding: 28px 18px;
+                margin-bottom: 18px;
+                border-radius: 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+                letter-spacing: 1.2px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 15px;
+                font-size: 13px;
+                margin-bottom: 12px;
+                border-radius: 16px;
+            }
+
+            .pulsante-animato {
+                padding: 16px;
+                font-size: 13px;
+                margin-top: 22px;
+                border-radius: 16px;
+            }
+
+            .profile-img {
+                width: 130px;
+                height: 130px;
+                border-width: 6px;
+            }
+
+            #theme-toggle {
+                padding: 13px;
+                font-size: 13px;
+                border-radius: 16px;
+            }
+
+            footer {
+                padding: 16px;
+                font-size: 13px;
+                margin-top: 45px;
+                border-radius: 16px;
+            }
+        }
+
+        /* ANIMAZIONE ENTRATA */
+        .container {
+            animation: slideUp 0.9s ease-out 0.25s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- THEME SWITCH -->
+    <div class="theme-switch">
+        <button id="theme-toggle"><span>🌙 Modalità Notte</span></button>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <img src="https://content-s3.tuttocampo.it/Players/Original/8750028.png?v=3&_gl=1*axf2x*_ga*MjgwNTMzODAwLjE3NzA3OTgwODA.*_ga_6WY6GYV6V8*czE3NzA3OTgwODAkbzEkZzEkdDE3NzA3OTkyNjckajYwJGwwJGgw*_ga_K7D43T92X5*czE3NzA3OTgwODAkbzEkZzEkdDE3NzA3OTkyNjckajYwJGwwJGgw" class="profile-img" alt="Profilo Alessandro">
+        <h1>@_ale.simonazzi_</h1>
+        <p>📚 Studente di Scienze Applicate | ⚽ Appassionato di Calcio</p>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <a href="https://www.instagram.com/_ale.simonazzi_/" target="_blank" rel="noopener" class="btn">
+            <i class="fab fa-instagram"></i> <span>Instagram</span>
+        </a>
+        <a href="https://torricellimi.edu.it/" target="_blank" rel="noopener" class="btn">
+            <i class="fas fa-school"></i> <span>Istituto</span>
+        </a>
+        <a href="https://www.tuttocampo.it/Lombardia/AllieviProvincialiU16/GironeEMilano/Giocatore/Scheda/8750028/Scheda" target="_blank" rel="noopener" class="btn">
+            <i class="fas fa-briefcase"></i> <span>Profilo Professionale</span>
+        </a>
+        <a href="https://www.youtube.com/@alessandrosimonazzi2529" target="_blank" rel="noopener" class="btn">
+            <i class="fab fa-youtube"></i> <span>YouTube</span>
+        </a>
+        <button id="contact-btn" class="pulsante-animato">💬 Contattami</button>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>✨ Creato per il corso di informatica ✨</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const pulsante = document.getElementById('theme-toggle');
+        const corpo = document.body;
+
+        pulsante.addEventListener('click', () => {
+            corpo.classList.toggle('dark-mode');
+            
+            if (corpo.classList.contains('dark-mode')) {
+                pulsante.innerHTML = '<span>☀️ Modalità Giorno</span>';
+                localStorage.setItem('darkMode', 'true');
+            } else {
+                pulsante.innerHTML = '<span>🌙 Modalità Notte</span>';
+                localStorage.setItem('darkMode', 'false');
+            }
+        });
+
+        const darkModeAttiva = localStorage.getItem('darkMode') === 'true';
+        if (darkModeAttiva) {
+            corpo.classList.add('dark-mode');
+            pulsante.innerHTML = '<span>☀️ Modalità Giorno</span>';
+        }
+
+        const contactBtn = document.getElementById('contact-btn');
+        contactBtn.addEventListener('click', () => {
+            window.open('https://mail.google.com/mail/?view=cm&fs=1&to=alessandro.simonazzi07@gmail.com&su=Contatto%20da%20Profilo&body=Ciao%20Alessandro!', '_blank');
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            const profileImg = document.querySelector('.profile-img');
+            if (profileImg) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 22;
+                const y = (e.clientY / window.innerHeight - 0.5) * 22;
+                profileImg.style.transform = `scale(1.16) rotateZ(8deg) translateX(${x}px) translateY(${y}px)`;
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            const profileImg = document.querySelector('.profile-img');
+            if (profileImg) {
+                profileImg.style.transform = 'scale(1.16) rotateZ(8deg)';
+            }
+        });
+
+        // MESSAGGIO DI BENVENUTO (OPZIONE 3)
+        alert('Ciao! 👋\n\nSono Alessandro Simonazzi.\nBenvenuto nel mio spazio!');
+    </script>
+
+</body>
+</html>
